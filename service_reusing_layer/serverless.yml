@@ -1,0 +1,14 @@
+service: service-reusing-layer
+
+provider:
+  name: aws
+  runtime: python3.6
+  lambdaHashingVersion: 20201221
+  region: us-west-2
+
+functions:
+  hello:
+    handler: handler.hello
+    layers:
+      - arn:aws:lambda:us-west-2:XXXXXXXXXXXX:layer:service-with-requirements-layer-dev-python-requirements:2
+
